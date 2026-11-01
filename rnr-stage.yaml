@@ -15,14 +15,42 @@ yaml_version: 1
 stage: fetch
 
 modules:
-  if_stage:           {source_files: [IF_Stage/rtl.sv]}
-  decoder:            {source_files: [Decoder/rtl.sv]}
-  imm_generator:      {source_files: [Immediate_Generator/rtl.sv]}
-  register_file:      {source_files: [Register_File/rtl.sv]}
-  main_control:       {source_files: [Main_Control/rtl.sv]}
-  id_stage:           {source_files: [ID_Stage/rtl.sv]}
-  alu:                {source_files: [ALU/rtl.sv]}
-  alu_control:        {source_files: [ALU_Control/rtl.sv]}
-  ex_stage:           {source_files: [EX_Stage/rtl.sv]}
-  wb_stage:           {source_files: [WB_Stage/rtl.sv]}
-  single_cycle_riscv: {source_files: [Single_Cycle_RISCV/rtl.sv]}
+yaml_version: 1
+
+stage: execute
+
+modules:
+  if_stage:
+    source_files: [if_stage.sv]
+
+  decoder:
+    source_files: [decoder.sv]
+
+  imm_generator:
+    source_files: [imm_generator.sv]
+
+  register_file:
+    source_files: [register_file.sv]
+
+  main_control:
+    source_files: [main_control.sv]
+
+  id_stage:
+  source_files:
+    - id_stage.sv
+    - decoder.sv
+    - imm_generator.sv
+    - register_file.sv
+    - main_control.sv
+
+  alu:
+    source_files: [alu.sv]
+
+  alu_control:
+    source_files: [alu_control.sv]
+
+ex_stage:
+  source_files:
+    - ex_stage.sv
+    - alu.sv
+    - alu_control.sv
