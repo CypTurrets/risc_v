@@ -1,4 +1,4 @@
-~# CI configuration. Edit this file, then commit and push.
+# CI configuration. Edit this file, then commit and push.
 #
 # 1. Set `stage` (fetch -> decode -> execute -> writeback -> integration).
 #    CI checks that stage and every earlier one; modules of later stages are ignored.
