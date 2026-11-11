@@ -13,7 +13,7 @@
 #    modules listed here too.
 yaml_version: 1
 
-stage: execute
+stage: integration
 
 modules:
 
@@ -56,5 +56,23 @@ modules:
   ex_stage:
     source_files:
       - EX_Stage/ex_stage.sv
+      - ALU/alu.sv
+      - ALU_Control/alu_control.sv
+
+  wb_stage:
+    source_files:
+      - WB_Stage/wb_stage.sv
+
+  single_cycle_riscv:
+    source_files:
+      - Single_Cycle_RISCV/single_cycle_riscv.sv
+      - IF_Stage/if_stage.sv
+      - ID_Stage/id_stage.sv
+      - EX_Stage/ex_stage.sv
+      - WB_Stage/wb_stage.sv
+      - Decoder/decoder.sv
+      - Immediate_Generator/imm_generator.sv
+      - Register_File/register_file.sv
+      - Main_Control/main_control.sv
       - ALU/alu.sv
       - ALU_Control/alu_control.sv
